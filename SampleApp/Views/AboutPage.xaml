@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleApp.Views.AboutPage"
+             xmlns:vm="clr-namespace:SampleApp.ViewModels"
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+            <StackLayout BackgroundColor="{DynamicResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                        <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark=Black, Light=White}"/>
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                    <Label Text="Start developing now" FontSize="Title"/>
+                    <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16"/>
+                    <Label FontSize="16" Padding="0,24,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Learn more at "/>
+                                    <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Button Margin="0,10,0,0" Text="Learn more"
+                        Command="{Binding OpenWebCommand}"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
