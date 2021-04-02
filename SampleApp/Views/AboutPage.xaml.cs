@@ -10,7 +10,6 @@ namespace SampleApp.Views
         public AboutPage()
         {
             InitializeComponent();
-            //Resources["Accent"] = Application.Current.RequestedTheme == OSAppTheme.Dark ? Resources["Yellow"] : Color.FromHex("#96d1ff");
         }
     }
 }
