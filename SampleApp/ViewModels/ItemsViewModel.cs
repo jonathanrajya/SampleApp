@@ -25,7 +25,7 @@ namespace SampleApp.ViewModels
 
             ItemTapped = new Command<Item>(OnItemSelected);
 
-            AddItemCommand = new Command(OnAddItem);
+            AddItemCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(NewItemPage)));
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -65,11 +65,6 @@ namespace SampleApp.ViewModels
                 SetProperty(ref _selectedItem, value);
                 OnItemSelected(value);
             }
-        }
-
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
         async void OnItemSelected(Item item)

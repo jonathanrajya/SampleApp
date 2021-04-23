@@ -4,8 +4,7 @@
        xmlns:local="clr-namespace:SampleApp.Views"
        Title="SampleApp"
        x:Class="SampleApp.AppShell"
-       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-       BackgroundColor="{AppThemeBinding Dark=Black, Light=White}">
+       FlyoutBackgroundColor="{AppThemeBinding Dark=Black, Light=White}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
