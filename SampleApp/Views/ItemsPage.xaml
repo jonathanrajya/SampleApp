@@ -5,8 +5,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:SampleApp.ViewModels"  
              xmlns:model="clr-namespace:SampleApp.Models"  
-             x:Name="BrowseItemsPage"
-             BackgroundColor="{AppThemeBinding Dark=Black, Light=White}">
+             x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />

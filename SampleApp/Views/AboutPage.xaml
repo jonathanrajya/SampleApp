@@ -4,7 +4,6 @@
              x:Class="SampleApp.Views.AboutPage"
              xmlns:vm="clr-namespace:SampleApp.ViewModels"
              Title="{Binding Title}"
-             BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
     <ContentPage.BindingContext>

@@ -31,6 +31,9 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
             </Style>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=Black, Light=White}"/>
+            </Style>
         </ResourceDictionary>        
     </Application.Resources>
 </Application>
