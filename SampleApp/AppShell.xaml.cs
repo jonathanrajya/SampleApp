@@ -11,6 +11,7 @@ namespace SampleApp
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(CollectionViewTest), typeof(CollectionViewTest));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

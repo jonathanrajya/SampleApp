@@ -1,8 +1,5 @@
 ﻿using SampleApp.Services;
-using SampleApp.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SampleApp
 {
@@ -13,6 +10,9 @@ namespace SampleApp
         {
             Device.SetFlags(new string[] { "AppTheme_Experimental" });
             InitializeComponent();
+            Sharpnado.HorizontalListView.Initializer.Initialize(true, false);
+            Sharpnado.Tabs.Initializer.Initialize(false, false);
+            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
             Resources["Primary"] = Current.RequestedTheme == OSAppTheme.Dark ? Resources["ThemeYellow"] : Resources["ThemeBlue"];
             Resources["Accent"] = Current.RequestedTheme == OSAppTheme.Dark ? Resources["ThemeYellow"] : Color.FromHex("#96d1ff");
             Current.RequestedThemeChanged += (s, a) =>

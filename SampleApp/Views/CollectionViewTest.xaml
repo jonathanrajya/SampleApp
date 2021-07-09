@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleApp.Views.CollectionViewTest"
+             xmlns:vm="clr-namespace:SampleApp.ViewModels"
+             x:DataType="vm:CollectionViewTestViewModel"
+             xmlns:views="clr-namespace:SampleApp.Views"
+             xmlns:sharpnado="http://sharpnado.com"
+             xmlns:converters="clr-namespace:SampleApp.Converters"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             Title="CollectionView Sample">
+    <ContentPage.BindingContext>
+        <vm:CollectionViewTestViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TabStyle" TargetType="sharpnado:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="{AppThemeBinding Dark={StaticResource ThemeYellow}, Light=White}"/>
+                <Setter Property="LabelSize" Value="16"/>
+                <Setter Property="UnselectedLabelColor" Value="White"/>
+            </Style>
+            
+            <!--Commented out images in templates because they're not appearing in list for some reason-->
+            <DataTemplate x:Key="GridTemplate" x:DataType="vm:TestItem">
+                <ViewCell>
+                    <Frame CornerRadius="10">
+                        <!--<StackLayout>-->
+                            <!--<Image Source="{Binding thumbnailUrl}" Aspect="AspectFit"/>-->
+                            <Label Text="{Binding title}" LineBreakMode="TailTruncation" MaxLines="2"/>
+                        <!--</StackLayout>-->
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="ListTemplate" x:DataType="vm:TestItem">
+                <ViewCell>
+                    <Frame CornerRadius="10">
+                        <!--<StackLayout Orientation="Horizontal">-->
+                            <!--<Image Source="{Binding thumbnailUrl}" Aspect="AspectFit"/>-->
+                            <Label Text="{Binding title}" LineBreakMode="TailTruncation" VerticalOptions="CenterAndExpand"/>
+                        <!--</StackLayout>-->
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+            <views:ListModeTemplateSelector
+                x:Key="ListTemplateSelector"
+                GridTemplate="{StaticResource GridTemplate}"
+                VerticalTemplate="{StaticResource ListTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <sharpnado:TabHostView Grid.Row="0"
+                                   SelectedIndex="{Binding Mode, Converter={converters:ListModeToInt}, Mode=TwoWay}"
+                                   IsSegmented="True"
+                                   CornerRadius="15"
+                                   BackgroundColor="{AppThemeBinding Dark={StaticResource BlackGrey}, Light={StaticResource ThemeBlue}}"
+                                   TabType="Fixed"
+                                   HeightRequest="50"
+                                   Margin="16,16,16,10">
+                <sharpnado:TabHostView.Tabs>
+                    <sharpnado:UnderlinedTabItem Label="List" Style="{StaticResource TabStyle}"/>
+                    <sharpnado:UnderlinedTabItem Label="Grid" Style="{StaticResource TabStyle}"/>
+                </sharpnado:TabHostView.Tabs>
+            </sharpnado:TabHostView>
+            <sharpnado:HorizontalListView
+                Grid.Row="1"
+                x:Name="ItemList"
+                ListLayout="{Binding Mode, Converter={converters:ListModeToListLayout}}"
+                ListLayoutChanging="List_ListLayoutChanging"
+                CollectionPadding="16"
+                ItemSpacing="16"
+                ItemsSource="{Binding Items}"
+                ItemTemplate="{StaticResource ListTemplateSelector}"
+                ViewCacheSize="5"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Android.Views;
+using Sharpnado.HorizontalListView.Droid;
 
 namespace SampleApp.Droid
 {
@@ -13,6 +14,7 @@ namespace SampleApp.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            SharpnadoInitializer.Initialize();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)

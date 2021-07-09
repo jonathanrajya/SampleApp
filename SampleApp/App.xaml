@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <Color x:Key="ThemeYellow">#FFD600</Color>
             <Color x:Key="ThemeBlue">#2196F3</Color>
+            <Color x:Key="BlackGrey">#121212</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark=Black, Light=White}"/>
                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -33,6 +34,11 @@
             </Style>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=Black, Light=White}"/>
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BlackGrey}, Light=White}"/>
+                <Setter Property="HasShadow" Value="{AppThemeBinding Dark=False, Light=True}"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Dark=Transparent, Light=Gray}"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

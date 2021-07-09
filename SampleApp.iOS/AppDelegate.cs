@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
+using Sharpnado.HorizontalListView.iOS;
 using UIKit;
 
 namespace SampleApp.iOS
@@ -22,7 +19,10 @@ namespace SampleApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            SharpnadoInitializer.Initialize();
+
             global::Xamarin.Forms.Forms.Init();
+            Sharpnado.Tabs.iOS.Preserver.Preserve();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
