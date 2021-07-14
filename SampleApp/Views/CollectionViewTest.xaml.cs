@@ -33,14 +33,12 @@ namespace SampleApp.Views
                     break;
 
                 case HorizontalListViewLayout.Grid:
-                    ItemList.ItemWidth = 60;
                     ItemList.ItemHeight = 80;
                     ItemList.ColumnCount = 2;
                     break;
 
                 case HorizontalListViewLayout.Vertical:
                     ItemList.ColumnCount = 1;
-                    ItemList.ItemWidth = 0;
                     ItemList.ItemHeight = 80;
                     break;
             }
