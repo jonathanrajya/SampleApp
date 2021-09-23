@@ -1,10 +1,4 @@
 ﻿using Sharpnado.HorizontalListView.RenderedViews;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,11 +23,10 @@ namespace SampleApp.Views
                     ItemList.Margin = Device.RuntimePlatform == Device.Android
                         ? new Thickness(0, 60, 0, 0)
                         : new Thickness(0, -60, 0, 0);
-
                     break;
 
                 case HorizontalListViewLayout.Grid:
-                    ItemList.ItemHeight = 80;
+                    ItemList.ItemHeight = 140;
                     ItemList.ColumnCount = 2;
                     break;
 

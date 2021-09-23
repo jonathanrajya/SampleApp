@@ -3,8 +3,8 @@ using System.Net.Http;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using System.Collections.Generic;
 using Newtonsoft.Json;
+using Xamarin.Forms.Internals;
 
 namespace SampleApp.ViewModels
 {
@@ -15,7 +15,8 @@ namespace SampleApp.ViewModels
             List = 0,
             Grid = 1,
         }
-        ListMode _mode;
+
+        private ListMode _mode;
         public ListMode Mode
         {
             get => _mode;
@@ -41,10 +42,12 @@ namespace SampleApp.ViewModels
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    using (var client = new HttpClient())
+                    using (HttpClient client = new HttpClient())
                     {
-                        var response = await client.GetStringAsync("https://jsonplaceholder.typicode.com/photos");
-                        Items = new ObservableCollection<TestItem>(JsonConvert.DeserializeObject<List<TestItem>>(response));
+                        string response = await client.GetStringAsync("https://jsonplaceholder.typicode.com/photos");
+                        Items = JsonConvert.DeserializeObject<ObservableCollection<TestItem>>(response);
+                        //Images are not visible without this on Android
+                        Items.ForEach(item => item.thumbnailUrl += ".png");
                     }
                 }
                 else

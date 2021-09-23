@@ -22,24 +22,23 @@
                 <Setter Property="UnselectedLabelColor" Value="White"/>
             </Style>
             
-            <!--Commented out images in templates because they're not appearing in list for some reason-->
             <DataTemplate x:Key="GridTemplate" x:DataType="vm:TestItem">
                 <ViewCell>
                     <Frame CornerRadius="10">
-                        <!--<StackLayout>-->
-                            <!--<Image Source="{Binding thumbnailUrl}" Aspect="AspectFit"/>-->
+                        <StackLayout Spacing="10">
+                            <Image Source="{Binding thumbnailUrl}" Aspect="AspectFit"/>
                             <Label Text="{Binding title}" LineBreakMode="TailTruncation" MaxLines="2"/>
-                        <!--</StackLayout>-->
+                        </StackLayout>
                     </Frame>
                 </ViewCell>
             </DataTemplate>
             <DataTemplate x:Key="ListTemplate" x:DataType="vm:TestItem">
                 <ViewCell>
                     <Frame CornerRadius="10">
-                        <!--<StackLayout Orientation="Horizontal">-->
-                            <!--<Image Source="{Binding thumbnailUrl}" Aspect="AspectFit"/>-->
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="{Binding thumbnailUrl}" Aspect="AspectFit"/>
                             <Label Text="{Binding title}" LineBreakMode="TailTruncation" VerticalOptions="CenterAndExpand"/>
-                        <!--</StackLayout>-->
+                        </StackLayout>
                     </Frame>
                 </ViewCell>
             </DataTemplate>
