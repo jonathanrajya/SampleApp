@@ -5,6 +5,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using Xamarin.Forms.Internals;
+using SampleApp.Models;
 
 namespace SampleApp.ViewModels
 {
@@ -60,14 +61,5 @@ namespace SampleApp.ViewModels
                 await Shell.Current.DisplayAlert("Alert", "An unknown error occurred", "Ok");
             }
         }
-    }
-
-    public class TestItem
-    {
-        public int albumId { get; set; }
-        public int id { get; set; }
-        public string title { get; set; }
-        public string url { get; set; }
-        public string thumbnailUrl { get; set; }
     }
 }

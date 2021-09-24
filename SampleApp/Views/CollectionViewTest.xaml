@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.Views.CollectionViewTest"
              xmlns:vm="clr-namespace:SampleApp.ViewModels"
+             xmlns:Models="clr-namespace:SampleApp.Models"
              x:DataType="vm:CollectionViewTestViewModel"
              xmlns:views="clr-namespace:SampleApp.Views"
              xmlns:sharpnado="http://sharpnado.com"
@@ -22,7 +23,7 @@
                 <Setter Property="UnselectedLabelColor" Value="White"/>
             </Style>
             
-            <DataTemplate x:Key="GridTemplate" x:DataType="vm:TestItem">
+            <DataTemplate x:Key="GridTemplate" x:DataType="Models:TestItem">
                 <ViewCell>
                     <Frame CornerRadius="10">
                         <StackLayout Spacing="10">
@@ -32,7 +33,7 @@
                     </Frame>
                 </ViewCell>
             </DataTemplate>
-            <DataTemplate x:Key="ListTemplate" x:DataType="vm:TestItem">
+            <DataTemplate x:Key="ListTemplate" x:DataType="Models:TestItem">
                 <ViewCell>
                     <Frame CornerRadius="10">
                         <StackLayout Orientation="Horizontal" Spacing="10">
